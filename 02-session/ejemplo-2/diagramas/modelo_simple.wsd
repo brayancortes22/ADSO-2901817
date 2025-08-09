@@ -1,0 +1,13 @@
+title modelo simple de negocio
+
+participant Controller
+participant Service
+participant Model as "Modelo (entidad)"
+participant Validator as "Validador"
+participant Repo as "Repositorio"
+
+Controller->Service: dto
+Service->Validator: validar dto
+Validator-->Service: ok/errores
+Service->Model: mapear dto->modelo
+Service->Repo: persistir modelo

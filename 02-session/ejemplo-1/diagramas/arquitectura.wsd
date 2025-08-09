@@ -1,0 +1,36 @@
+title arquitectura lógica (monolítico vs distribuido)
+
+participant Cliente
+box API
+  participant Controller
+  participant Service
+end box
+participant Dominio
+participant Repository
+box Bases de Datos
+  participant SQLServer
+  participant MySQL
+  participant NoSQL
+end box
+participant Broker as "Message Broker"
+participant Worker
+participant SistemaExterno as "Sistemas Externos"
+
+note right of Cliente: vista/mvc en monolítico o ui separada
+consumiendo api rest
+
+Cliente->Controller: solicita operación (HTTP)
+Controller->Service: valida dto y delega caso de uso
+Service->Dominio: ejecuta reglas/entidades
+Dominio->Repository: solicita persistencia
+Repository->SQLServer: lectura/escritura
+Repository->MySQL: lectura/escritura
+Repository->NoSQL: lectura/escritura
+
+Service->Broker: publica evento de dominio
+Broker->Worker: entrega evento
+Worker->SistemaExterno: integra por api/cola/webhook
+Worker->Repository: actualiza estado
+
+note over Controller,Repository: capas: entity, idto, irepository,
+iservice, service, controller

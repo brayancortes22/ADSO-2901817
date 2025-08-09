@@ -1,0 +1,18 @@
+title puertos y adaptadores (hexagonal)
+participant Http as "adapter in http"
+participant UseCase as "application use case"
+participant Domain
+participant PortRepo as "port out repo"
+participant Repo as "adapter out repo"
+participant DB
+participant PortMsg as "port out messaging"
+participant Broker
+
+Http->UseCase: comando(dto)
+UseCase->Domain: ejecutar regla
+Domain-->UseCase: evento dominio
+UseCase->PortRepo: save(aggregate)
+PortRepo->Repo: implementación
+Repo->DB: upsert
+UseCase->PortMsg: publish(event)
+PortMsg->Broker: send

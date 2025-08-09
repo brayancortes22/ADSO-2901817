@@ -1,0 +1,16 @@
+title diagrama de dominio (flujo de reglas)
+
+participant Controller
+participant ApplicationService as "Servicio de aplicación"
+participant Entity as "Entidad/agregado"
+participant DomainEvent as "Evento de dominio"
+participant Policy as "Política/validador"
+participant Repo as "Repositorio (contrato)"
+
+Controller->ApplicationService: ejecutar caso de uso(dto)
+ApplicationService->Policy: validar invariantes
+Policy-->ApplicationService: ok/errores
+ApplicationService->Entity: invocar método (comportamiento)
+Entity->DomainEvent: generar evento
+ApplicationService->Repo: guardar cambios (unit of work)
+ApplicationService->DomainEvent: publicar/salvar evento

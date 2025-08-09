@@ -1,0 +1,22 @@
+title infraestructura y resiliencia
+participant Service
+participant Cache
+participant Repo
+participant DBsql
+participant DBmongo
+participant Outbox
+participant Bus
+participant External
+
+Service->Repo: query
+Repo->Cache: get
+Cache-->Repo: miss
+Repo->DBsql: select
+Repo->DBmongo: select
+DBsql-->Repo: rows
+DBmongo-->Repo: docs
+Repo->Cache: set
+
+Service->Outbox: append
+Outbox->Bus: relay
+Service->External: call with retry/timeout

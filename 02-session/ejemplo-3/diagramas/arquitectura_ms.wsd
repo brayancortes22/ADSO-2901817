@@ -1,0 +1,32 @@
+title arquitectura microservicios (ddd + hexagonal, event-driven)
+participant ClientWeb as "web (react)"
+participant ClientMobile as "mobile (rn)"
+participant APIGW as "api gateway"
+participant Security
+participant Sell
+participant Inventory
+participant Customer
+participant Payments
+participant EventBus as "event bus"
+participant DB1 as "sql server"
+participant DB2 as "postgres"
+participant DB3 as "mongo"
+
+ClientWeb->APIGW: http
+ClientMobile->APIGW: http
+APIGW->Security: /auth/*
+APIGW->Sell: /orders/*
+APIGW->Inventory: /stock/*
+APIGW->Customer: /customers/*
+APIGW->Payments: /payments/*
+
+Security->DB1: persistir
+Sell->DB2: persistir
+Inventory->DB3: persistir
+Customer->DB3: persistir
+Payments->DB2: persistir
+
+Sell->EventBus: OrderCreated
+EventBus->Inventory: OrderCreated
+Payments->EventBus: PaymentCaptured
+EventBus->Sell: PaymentCaptured

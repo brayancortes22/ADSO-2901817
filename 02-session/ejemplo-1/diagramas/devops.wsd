@@ -1,0 +1,18 @@
+title devops (ci/cd simplificado)
+
+participant Developer
+participant Git
+participant CI as "CI (build/test)"
+participant Registry as "container registry"
+participant CD as "CD (deploy)"
+participant Cluster as "k8s/infra"
+participant Monitor as "monitoring/alerts"
+
+Developer->Git: push
+Git->CI: trigger pipeline
+CI->CI: compilar, pruebas unitarias
+CI->Registry: construir y publicar imagen
+CI->CD: notificar release
+CD->Cluster: desplegar nueva versión
+Cluster->Monitor: métricas/logs
+Monitor->Developer: alertas

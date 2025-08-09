@@ -1,0 +1,21 @@
+title integraciones
+
+participant API as "nuestra API"
+participant Auth as "proveedor auth"
+participant ERP as "ERP externo"
+participant Payments as "pasarela pagos"
+participant Mailer as "email/sms"
+participant Webhook as "webhook receptor"
+
+API->Auth: login/oauth
+Auth-->API: token
+
+API->ERP: consulta catálogo
+ERP-->API: datos
+
+API->Payments: crear transacción
+Payments-->API: url pago/estado
+Payments->Webhook: callback de confirmación
+Webhook->API: notificar pago
+
+API->Mailer: enviar notificación

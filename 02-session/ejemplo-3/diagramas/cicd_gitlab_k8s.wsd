@@ -1,0 +1,16 @@
+title gitlab ci/cd → kubernetes
+participant Dev
+participant GitLab
+participant Runner
+participant Registry
+participant K8sAWS
+participant K8sAZ
+participant Monitor
+
+Dev->GitLab: push
+GitLab->Runner: pipeline
+Runner->Registry: build & push image
+Runner->K8sAWS: deploy
+Runner->K8sAZ: deploy
+K8sAWS->Monitor: logs/metrics/traces
+K8sAZ->Monitor: logs/metrics/traces

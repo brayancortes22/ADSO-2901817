@@ -1,0 +1,14 @@
+title integraciones básicas
+
+participant API
+participant Auth
+participant ERP
+participant Mail
+
+API->Auth: login
+Auth-->API: token
+
+API->ERP: obtener datos
+ERP-->API: json
+
+API->Mail: enviar correo

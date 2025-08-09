@@ -1,0 +1,14 @@
+title infraestructura mínima
+
+participant App as "Aplicación"
+participant ORM
+participant DB as "DB"
+participant Ext as "API externa"
+
+App->ORM: query
+ORM->DB: sql
+DB-->ORM: filas
+ORM-->App: objetos
+
+App->Ext: http client (rest)
+Ext-->App: json

@@ -1,0 +1,12 @@
+title integraciones externas
+participant APIGW
+participant ERP
+participant PSP
+participant Mailer
+participant Webhook
+
+APIGW->ERP: rest
+APIGW->PSP: crear pago
+PSP->Webhook: callback
+Webhook->APIGW: confirmar
+APIGW->Mailer: notificar

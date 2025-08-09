@@ -1,0 +1,12 @@
+title devops simple
+
+participant Dev
+participant Git
+participant CI
+participant Registry
+participant Server
+
+Dev->Git: push
+Git->CI: build + tests
+CI->Registry: publicar imagen
+CI->Server: deploy (docker/k8s)

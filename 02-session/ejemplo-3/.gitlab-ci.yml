@@ -1,0 +1,35 @@
+stages: [test, build, publish, deploy]
+variables:
+  IMAGE_TAG: $CI_COMMIT_SHORT_SHA
+  REGISTRY: $CI_REGISTRY_IMAGE
+
+.test_template:
+  stage: test
+  image: alpine:latest
+  script: [ "echo run tests for $SERVICE" ]
+
+.build_template:
+  stage: build
+  image: docker:24.0.5
+  services: [ "docker:24.0.5-dind" ]
+  script:
+    - docker build -f $DOCKERFILE -t $REGISTRY/$SERVICE:$IMAGE_TAG .
+
+.publish_template:
+  stage: publish
+  image: docker:24.0.5
+  services: [ "docker:24.0.5-dind" ]
+  script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
+    - docker push $REGISTRY/$SERVICE:$IMAGE_TAG
+
+.deploy_template:
+  stage: deploy
+  image: bitnami/kubectl:latest
+  script:
+    - kubectl -n $NAMESPACE set image deployment/$SERVICE $SERVICE=$REGISTRY/$SERVICE:$IMAGE_TAG --record
+
+payments:test:   extends: .test_template   variables: { SERVICE: "payments" }
+payments:build:  extends: .build_template  variables: { SERVICE: "payments", DOCKERFILE: "csharp-ddd-hex/Dockerfile" }
+payments:publish:extends: .publish_template variables: { SERVICE: "payments" }
+payments:deploy: extends: .deploy_template variables: { SERVICE: "payments", NAMESPACE: "prod" }

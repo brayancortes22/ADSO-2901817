@@ -1,0 +1,16 @@
+title arquitectura simple por capas
+
+participant Cliente
+participant Controller
+participant Service
+participant Repository
+participant DB as "Base de datos"
+
+Cliente->Controller: request http
+Controller->Service: validar y delegar
+Service->Repository: guardar/consultar
+Repository->DB: sql
+DB-->Repository: filas
+Repository-->Service: objetos
+Service-->Controller: resultado
+Controller-->Cliente: response json
