@@ -8,7 +8,7 @@
 4. Escribe el nombre: `competencia-investigacion`.
 5. Haz clic en `Crear`.
 
----
+--- 
 
 ## 📓 Paso 2: Crear un Notebook en Google Colab
 

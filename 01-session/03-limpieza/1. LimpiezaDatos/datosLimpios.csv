@@ -1,0 +1,100 @@
+,Age,Gender,Temperature,Headache,Fever,Hospital,CovidDiagnosis
+0,12.0,Masculino,36.0,SI,1.0,Moncaleano,positive
+1,35.0,Femenino,38.0,NO,0.0,Medilaser,negative
+2,65.0,Femenino,36.0,SI,1.0,Carmen Emilia,negative
+3,78.0,Femenino,39.0,NO,1.0,Moncaleano,negative
+4,41.0,Masculino,40.0,SI,0.0,Medilaser,positive
+5,18.0,Femenino,41.0,NO,1.0,Carmen Emilia,positive
+6,98.0,Femenino,38.5,SI,0.0,Moncaleano,negative
+7,12.0,Femenino,38.9,SI,1.0,Medilaser,negative
+8,45.0,Femenino,36.7,SI,0.0,Carmen Emilia,negative
+9,13.0,Femenino,35.2,NO,1.0,Moncaleano,positive
+10,43.0,Femenino,34.3,SI,0.0,Medilaser,positive
+11,42.0,Femenino,33.09,SI,1.0,Carmen Emilia,negative
+12,42.0,Masculino,31.88,SI,1.0,Moncaleano,negative
+13,18.0,Masculino,30.67,SI,1.0,Medilaser,negative
+14,41.0,Masculino,29.46,NO,1.0,Carmen Emilia,positive
+15,40.0,Masculino,28.25,SI,1.0,Moncaleano,positive
+16,39.0,Masculino,27.04,NO,0.0,Medilaser,negative
+17,39.0,Masculino,25.83,SI,0.0,Carmen Emilia,negative
+18,38.0,Femenino,24.62,NO,0.0,Moncaleano,negative
+19,18.0,Femenino,23.41,SI,1.0,Medilaser,positive
+20,37.0,Femenino,33.09,SI,0.0,Carmen Emilia,positive
+21,36.0,Femenino,31.88,SI,1.0,Moncaleano,negative
+22,36.0,Femenino,30.67,NO,1.0,Medilaser,negative
+23,35.0,Femenino,29.46,SI,0.0,Carmen Emilia,negative
+24,34.0,Femenino,28.25,SI,1.0,Moncaleano,positive
+25,34.0,Masculino,27.04,SI,0.0,Medilaser,positive
+26,33.0,Masculino,25.83,SI,1.0,Carmen Emilia,negative
+27,32.0,Masculino,24.62,NO,0.0,Moncaleano,negative
+28,32.0,Masculino,23.41,SI,1.0,Medilaser,negative
+29,31.0,Masculino,33.09,NO,0.0,Carmen Emilia,positive
+30,31.0,Masculino,31.88,SI,1.0,Moncaleano,positive
+31,30.0,Masculino,30.67,NO,0.0,Medilaser,negative
+32,29.0,Femenino,29.46,SI,1.0,Carmen Emilia,negative
+33,29.0,Femenino,28.25,SI,1.0,Moncaleano,negative
+34,28.0,Femenino,27.04,SI,0.0,Medilaser,positive
+35,28.0,Masculino,25.83,NO,1.0,Carmen Emilia,positive
+36,27.0,Femenino,24.62,SI,0.0,Moncaleano,negative
+37,26.0,Femenino,23.41,SI,1.0,Medilaser,negative
+38,26.0,Femenino,33.09,SI,0.0,Carmen Emilia,negative
+39,25.0,Masculino,31.88,SI,1.0,Moncaleano,positive
+40,24.0,Femenino,30.67,NO,0.0,Medilaser,positive
+41,24.0,Femenino,29.46,SI,1.0,Carmen Emilia,negative
+42,23.0,Femenino,28.25,NO,0.0,Moncaleano,negative
+43,23.0,Masculino,27.04,SI,1.0,Medilaser,negative
+44,22.0,Femenino,25.83,NO,1.0,Carmen Emilia,positive
+45,21.0,Femenino,24.62,SI,0.0,Moncaleano,positive
+46,21.0,Femenino,23.41,SI,1.0,Medilaser,negative
+47,20.0,Masculino,35.0,SI,0.0,Carmen Emilia,negative
+48,20.0,Femenino,36.0,NO,1.0,Moncaleano,negative
+49,19.0,Femenino,37.0,SI,0.0,Medilaser,positive
+50,18.0,Femenino,36.35,SI,1.0,Carmen Emilia,positive
+51,18.0,Masculino,35.0,SI,0.0,Moncaleano,negative
+52,17.0,Femenino,36.0,SI,1.0,Medilaser,negative
+53,16.0,Femenino,37.0,NO,0.0,Carmen Emilia,negative
+54,16.0,Femenino,35.0,SI,1.0,Moncaleano,positive
+55,15.0,Masculino,36.0,NO,1.0,Medilaser,positive
+56,15.0,Femenino,37.0,SI,0.0,Carmen Emilia,negative
+57,14.0,Femenino,38.0,NO,1.0,Moncaleano,negative
+58,13.0,Femenino,39.0,SI,0.0,Medilaser,negative
+59,13.0,Masculino,40.0,SI,1.0,Carmen Emilia,positive
+60,12.0,Femenino,41.0,SI,0.0,Moncaleano,positive
+61,11.0,Femenino,42.0,NO,1.0,Medilaser,negative
+62,11.0,Femenino,43.0,SI,0.0,Carmen Emilia,negative
+63,10.0,Masculino,44.0,SI,1.0,Moncaleano,negative
+64,10.0,Femenino,45.0,SI,0.0,Medilaser,positive
+65,9.0,Femenino,37.0,SI,1.0,Carmen Emilia,positive
+66,8.0,Femenino,38.0,NO,1.0,Moncaleano,negative
+67,8.0,Masculino,39.0,SI,0.0,Medilaser,negative
+68,7.0,Femenino,40.0,NO,1.0,Carmen Emilia,negative
+69,7.0,Femenino,41.0,SI,0.0,Moncaleano,positive
+70,6.0,Femenino,42.0,NO,1.0,Medilaser,positive
+71,5.0,Masculino,37.0,SI,0.0,Carmen Emilia,negative
+72,5.0,Femenino,38.0,SI,1.0,Moncaleano,negative
+73,4.0,Femenino,39.0,SI,0.0,Medilaser,negative
+74,3.0,Femenino,40.0,NO,1.0,Carmen Emilia,positive
+75,3.0,Masculino,41.0,SI,0.0,Moncaleano,positive
+76,2.0,Femenino,42.0,SI,1.0,Medilaser,negative
+77,2.0,Femenino,37.0,SI,1.0,Carmen Emilia,negative
+78,11.0,Femenino,38.0,SI,0.0,Moncaleano,negative
+79,11.0,Masculino,39.0,NO,1.0,Medilaser,positive
+80,10.0,Femenino,40.0,SI,0.0,Carmen Emilia,positive
+81,10.0,Femenino,41.0,NO,1.0,Moncaleano,negative
+82,9.0,Femenino,42.0,SI,0.0,Medilaser,negative
+83,8.0,Masculino,37.0,NO,1.0,Carmen Emilia,negative
+84,8.0,Femenino,38.0,SI,0.0,Moncaleano,positive
+85,7.0,Femenino,39.0,SI,1.0,Medilaser,positive
+86,7.0,Femenino,40.0,SI,0.0,Carmen Emilia,negative
+87,11.0,Masculino,41.0,NO,1.0,Moncaleano,negative
+88,11.0,Femenino,42.0,SI,1.0,Medilaser,negative
+89,10.0,Femenino,37.0,SI,0.0,Carmen Emilia,positive
+90,10.0,Femenino,38.0,SI,1.0,Moncaleano,positive
+91,9.0,Masculino,39.0,SI,0.0,Medilaser,negative
+92,8.0,Femenino,40.0,SI,1.0,Carmen Emilia,negative
+93,8.0,Femenino,41.0,SI,0.0,Moncaleano,negative
+94,7.0,Femenino,42.0,SI,1.0,Medilaser,positive
+95,7.0,Masculino,35.0,SI,0.0,Carmen Emilia,positive
+96,25.0,Femenino,35.2,SI,1.0,Moncaleano,negative
+97,26.0,Femenino,35.6,SI,1.0,Medilaser,negative
+98,30.0,Femenino,36.9,SI,1.0,Carmen Emilia,negative
