@@ -1,0 +1,189 @@
+
+@startuml ClassDiagram_Airport
+
+class Continent {
+	id : int
+	name : string
+	description : string
+}
+class Country {
+	id : int
+	name : string
+	description : string
+	continent_id : int
+}
+class State {
+	id : int
+	name : string
+	description : string
+	country_id : int
+}
+class Municipality {
+	id : int
+	name : string
+	description : string
+	state_id : int
+}
+class City {
+	id : int
+	name : string
+	description : string
+	municipality_id : int
+}
+class Airport {
+	id : int
+	name : string
+	address : string
+	city_id : int
+}
+class Terminal {
+	id : int
+	code : string
+	name : string
+	airport_id : int
+}
+class BoardingGate {
+	id : int
+	code : string
+	name : string
+	terminal_id : int
+}
+class Person {
+	id : int
+	document_type : string
+	document_number : string
+	first_name : string
+	last_name : string
+	birth_date : date
+	email : string
+	phone_number : string
+}
+class Employee {
+	id : int
+	salary : float
+	role : string
+	person_id : int
+}
+class Passenger {
+	id : int
+	person_id : int
+}
+class SecurityAccess {
+	id : int
+	employee_id : int
+	airport_id : int
+	access_level : string
+	registration_date : date
+}
+class BaggageControl {
+	id : int
+	baggage_id : int
+	review_status : string
+	review_date : date
+	employee_id : int
+}
+class FlightSchedule {
+	id : int
+	flight_date : date
+	departure_time : time
+	arrival_time : time
+	flight_type : int
+	origin_boarding_gate_id : int
+	destination_boarding_gate_id : int
+	aircraft_id : int
+}
+class TicketSale {
+	id : int
+	sale_date : date
+	employee_id : int
+	passenger_id : int
+	ticket_id : int
+	payment_method : string
+}
+class Incident {
+	id : int
+	description : string
+	date : date
+	incident_type : string
+	flight_schedule_id : int
+	employee_id : int
+}
+class Baggage {
+	id : int
+	code : string
+	passenger_id : int
+	weight : float
+	dimensions : string
+	status : string
+}
+class Ticket {
+	id : int
+	code : string
+	flight_schedule_id : int
+	passenger_id : int
+	seat : string
+	class : string
+}
+class Crew {
+	id : int
+	employee_id : int
+	flight_schedule_id : int
+	crew_role : string
+}
+class AircraftType {
+	id : int
+	code : string
+	name : string
+}
+class Aircraft {
+	id : int
+	manufacturer : string
+	registration : string
+	usage_hours : float
+	aircraft_type_id : int
+}
+class FlightType {
+	id : int
+	name : string
+	description : string
+}
+class PaymentMethod {
+	id : int
+	type : string
+	description : string
+}
+class SeatClass {
+	id : int
+	name : string
+	description : string
+}
+class BaggageStatus {
+	id : int
+	name : string
+	description : string
+}
+
+Continent -- Country
+Country -- State
+State -- Municipality
+Municipality -- City
+City -- Airport
+Airport -- Terminal
+Terminal -- BoardingGate
+Person -- Employee
+Person -- Passenger
+Employee -- Crew
+FlightSchedule -- Crew
+FlightSchedule -- Incident
+Employee -- SecurityAccess
+Baggage -- BaggageControl
+AircraftType -- Aircraft
+Aircraft -- FlightSchedule
+FlightType -- FlightSchedule
+SeatClass -- Ticket
+FlightSchedule -- Ticket
+Ticket -- Baggage
+Passenger -- Ticket
+TicketSale -- Ticket
+
+@enduml

@@ -1,0 +1,68 @@
+@startuml DomainDiagram_Airport
+
+package "GeoLocation" {
+	class Continent
+	class Country
+	class State
+	class Municipality
+	class City
+	class Airport
+	class Terminal
+	class BoardingGate
+}
+
+package "Security" {
+	class Person
+	class Employee
+	class Passenger
+	class SecurityAccess
+	class BaggageControl
+}
+
+package "Management" {
+	class FlightSchedule
+	class TicketSale
+	class Incident
+	class Baggage
+	class Ticket
+	class Crew
+}
+
+package "Parameterization" {
+	class AircraftType
+	class Aircraft
+	class FlightType
+	class PaymentMethod
+	class SeatClass
+	class BaggageStatus
+}
+
+Continent -- Country
+Country -- State
+State -- Municipality
+Municipality -- City
+City -- Airport
+Airport -- Terminal
+Terminal -- BoardingGate
+
+Person -- Employee
+Person -- Passenger
+Employee -- SecurityAccess
+Baggage -- BaggageControl
+
+AircraftType -- Aircraft
+Aircraft -- FlightSchedule
+FlightType -- FlightSchedule
+SeatClass -- Ticket
+FlightSchedule -- Ticket
+Ticket -- Baggage
+Passenger -- Ticket
+TicketSale -- Ticket
+FlightSchedule -- Crew
+Employee -- Crew
+FlightSchedule -- Incident
+
+Airport -- SecurityAccess
+Airport -- FlightSchedule
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml SequenceDiagram_TicketPurchase
+
+actor Passenger
+actor Employee
+participant System
+participant Ticket
+participant FlightSchedule
+participant TicketSale
+
+Passenger -> Employee: Solicita compra de tiquete
+Employee -> System: Busca programaciones disponibles
+System -> Employee: Retorna lista de vuelos
+Employee -> System: Registra datos del pasajero
+System -> Ticket: Crea boleto y asocia a pasajero y vuelo
+System -> TicketSale: Registra venta de tiquete
+Employee -> Passenger: Entrega tiquete
+
+@enduml

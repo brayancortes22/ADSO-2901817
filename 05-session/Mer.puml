@@ -1,0 +1,190 @@
+
+@startuml ERD_Airport
+
+entity "Continent" as Continent {
+	*id : int
+	name : string
+	description : string
+}
+entity "Country" as Country {
+	*id : int
+	name : string
+	description : string
+	continent_id : int
+}
+entity "State" as State {
+	*id : int
+	name : string
+	description : string
+	country_id : int
+}
+entity "Municipality" as Municipality {
+	*id : int
+	name : string
+	description : string
+	state_id : int
+}
+entity "City" as City {
+	*id : int
+	name : string
+	description : string
+	municipality_id : int
+}
+entity "Airport" as Airport {
+	*id : int
+	name : string
+	address : string
+	city_id : int
+}
+entity "Terminal" as Terminal {
+	*id : int
+	code : string
+	name : string
+	airport_id : int
+}
+entity "BoardingGate" as BoardingGate {
+	*id : int
+	code : string
+	name : string
+	terminal_id : int
+}
+entity "Person" as Person {
+	*id : int
+	document_type : string
+	document_number : string
+	first_name : string
+	last_name : string
+	birth_date : date
+	email : string
+	phone_number : string
+}
+entity "Employee" as Employee {
+	*id : int
+	salary : float
+	role : string
+	person_id : int
+}
+entity "Passenger" as Passenger {
+	*id : int
+	person_id : int
+}
+entity "SecurityAccess" as SecurityAccess {
+	*id : int
+	employee_id : int
+	airport_id : int
+	access_level : string
+	registration_date : date
+}
+entity "BaggageControl" as BaggageControl {
+	*id : int
+	baggage_id : int
+	review_status : string
+	review_date : date
+	employee_id : int
+}
+entity "FlightSchedule" as FlightSchedule {
+	*id : int
+	flight_date : date
+	departure_time : time
+	arrival_time : time
+	flight_type : int
+	origin_boarding_gate_id : int
+	destination_boarding_gate_id : int
+	aircraft_id : int
+}
+entity "TicketSale" as TicketSale {
+	*id : int
+	sale_date : date
+	employee_id : int
+	passenger_id : int
+	ticket_id : int
+	payment_method : string
+}
+entity "Incident" as Incident {
+	*id : int
+	description : string
+	date : date
+	incident_type : string
+	flight_schedule_id : int
+	employee_id : int
+}
+entity "Baggage" as Baggage {
+	*id : int
+	code : string
+	passenger_id : int
+	weight : float
+	dimensions : string
+	status : string
+}
+entity "Ticket" as Ticket {
+	*id : int
+	code : string
+	flight_schedule_id : int
+	passenger_id : int
+	seat : string
+	class : string
+}
+entity "Crew" as Crew {
+	*id : int
+	employee_id : int
+	flight_schedule_id : int
+	crew_role : string
+}
+entity "AircraftType" as AircraftType {
+	*id : int
+	code : string
+	name : string
+}
+entity "Aircraft" as Aircraft {
+	*id : int
+	manufacturer : string
+	registration : string
+	usage_hours : float
+	aircraft_type_id : int
+}
+entity "FlightType" as FlightType {
+	*id : int
+	name : string
+	description : string
+}
+entity "PaymentMethod" as PaymentMethod {
+	*id : int
+	type : string
+	description : string
+}
+entity "SeatClass" as SeatClass {
+	*id : int
+	name : string
+	description : string
+}
+entity "BaggageStatus" as BaggageStatus {
+	*id : int
+	name : string
+	description : string
+}
+
+Continent ||--o{ Country
+Country ||--o{ State
+State ||--o{ Municipality
+Municipality ||--o{ City
+City ||--o{ Airport
+Airport ||--o{ Terminal
+Terminal ||--o{ BoardingGate
+Person ||--|{ Employee
+Person ||--|{ Passenger
+Employee ||--o{ Crew
+FlightSchedule ||--o{ Crew
+FlightSchedule ||--o{ Incident
+Employee ||--o{ SecurityAccess
+Baggage ||--o{ BaggageControl
+AircraftType ||--o{ Aircraft
+Aircraft ||--o{ FlightSchedule
+FlightType ||--o{ FlightSchedule
+SeatClass ||--o{ Ticket
+FlightSchedule ||--o{ Ticket
+Ticket ||--o{ Baggage
+Passenger ||--o{ Ticket
+TicketSale ||--|{ Ticket
+
+@enduml
+
