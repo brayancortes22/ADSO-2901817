@@ -1,0 +1,18 @@
+@startuml SequenceDiagram_Reservation_Ticket
+
+actor Passenger
+actor Employee
+participant System
+participant Reservation
+participant Ticket
+participant Flight
+
+Passenger -> Employee: Solicita reserva de vuelo
+Employee -> System: Busca vuelos disponibles
+System -> Employee: Retorna lista de vuelos
+Employee -> System: Registra datos del pasajero y reserva
+System -> Reservation: Crea reserva y asocia a pasajero y vuelo
+System -> Ticket: Emite ticket a partir de la reserva
+Employee -> Passenger: Entrega ticket
+
+@enduml

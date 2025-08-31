@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablero Canvas - Priorización MoSCoW y Tallaje</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
+        h1 { text-align: center; margin-top: 24px; }
+        .tablero { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin: 32px 0; }
+        .columna { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #ccc; padding: 16px; width: 320px; min-height: 400px; }
+        .columna h2 { text-align: center; margin-bottom: 12px; }
+        .tarea { background: #e9f5ff; border-left: 4px solid #0077c2; margin-bottom: 12px; padding: 8px 12px; border-radius: 4px; }
+        .tarea.must { border-color: #2ecc40; }
+        .tarea.should { border-color: #f1c40f; }
+        .tarea.could { border-color: #3498db; }
+        .tarea.wont { border-color: #e74c3c; opacity: 0.6; }
+        .talla { font-weight: bold; margin-right: 8px; }
+        .dias { float: right; color: #555; }
+        .leyenda { margin: 24px auto; max-width: 800px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #ccc; padding: 16px; }
+        .leyenda span { display: inline-block; margin-right: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Tablero Canvas: Priorización MoSCoW y Tallaje (80 días)</h1>
+    <div class="leyenda">
+        <span><b>XS</b>: 1–2 días</span>
+        <span><b>S</b>: 3–5 días</span>
+        <span><b>M</b>: 6–10 días</span>
+        <span><b>L</b>: 11–15 días</span>
+        <span><b>XL</b>: 16–20 días</span>
+        <span><b>Color</b>: Must (verde), Should (amarillo), Could (azul), Won't (rojo)</span>
+        <span><b>Plazo total:</b> 80 días</span>
+    </div>
+    <div class="tablero">
+        <div class="columna">
+            <h2>Must (Obligatorio)</h2>
+            <div class="tarea must"><span class="talla">S</span>Definir modelo ER y relaciones <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>Migración de user con autenticación <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>Autenticación JWT y refresh tokens <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">M</span>Control de acceso RBAC <span class="dias">8d</span></div>
+            <div class="tarea must"><span class="talla">S</span>CRUD person y vínculo user <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>CRUD geolocalización <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>CRUD airport <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>CRUD airline <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>CRUD aircraft <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">M</span>CRUD flight <span class="dias">8d</span></div>
+            <div class="tarea must"><span class="talla">M</span>Flight schedule <span class="dias">8d</span></div>
+            <div class="tarea must"><span class="talla">S</span>CRUD passenger <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>CRUD reservation <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>CRUD ticket <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>Emisión de ticket <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">M</span>Checkin online y pase de abordar <span class="dias">8d</span></div>
+            <div class="tarea must"><span class="talla">M</span>API REST v1 y OpenAPI <span class="dias">8d</span></div>
+            <div class="tarea must"><span class="talla">S</span>Pruebas unitarias <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>Pruebas de integración <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>CI con linters y cobertura <span class="dias">4d</span></div>
+            <div class="tarea must"><span class="talla">S</span>Docker y docker-compose <span class="dias">4d</span></div>
+        </div>
+        <div class="columna">
+            <h2>Should (Recomendado)</h2>
+            <div class="tarea should"><span class="talla">S</span>Validaciones avanzadas <span class="dias">5d</span></div>
+            <div class="tarea should"><span class="talla">S</span>CRUD crew, crew_assignment, flight_type, flight_status, ticket_class, baggage <span class="dias">5d</span></div>
+            <div class="tarea should"><span class="talla">M</span>Reportes y métricas <span class="dias">8d</span></div>
+            <div class="tarea should"><span class="talla">S</span>Auditoría y soft-delete <span class="dias">5d</span></div>
+            <div class="tarea should"><span class="talla">S</span>Notificaciones y backups <span class="dias">5d</span></div>
+        </div>
+        <div class="columna">
+            <h2>Could (Opcional)</h2>
+            <div class="tarea could"><span class="talla">S</span>Endpoints de reportes y exportaciones <span class="dias">5d</span></div>
+            <div class="tarea could"><span class="talla">S</span>Mejoras de rendimiento y seguridad <span class="dias">5d</span></div>
+            <div class="tarea could"><span class="talla">M</span>Pruebas end-to-end y automatización <span class="dias">8d</span></div>
+        </div>
+        <div class="columna">
+            <h2>Won't (No se hará ahora)</h2>
+            <div class="tarea wont"><span class="talla">M</span>Internacionalización y backups automáticos <span class="dias">8d</span></div>
+            <div class="tarea wont"><span class="talla">L</span>Mejoras de monitoreo y alertas <span class="dias">12d</span></div>
+        </div>
+    </div>
+    <div style="text-align:center; margin: 32px 0; color: #888;">
+        <b>Nota:</b> El tablero muestra la distribución de tareas priorizadas y talladas para un solo desarrollador en un plazo de 80 días. Ajusta el avance y mueve tareas entre columnas según el progreso real.
+    </div>
+</body>
+</html>

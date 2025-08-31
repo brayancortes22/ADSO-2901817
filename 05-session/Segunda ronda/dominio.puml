@@ -1,0 +1,76 @@
+@startuml DomainDiagram_AirportSystem
+
+package "GeoLocation" {
+	class continent
+	class country
+	class department
+	class city
+	class airport
+}
+
+package "Infrastructure" {
+	class terminal
+	class boarding_gate
+	class runway
+	class maintenance_facility
+}
+
+package "Security" {
+	class user
+	class role
+	class permission
+	class person
+}
+
+package "FlightManagement" {
+	class airline
+	class aircraft
+	class aircraft_type
+	class route
+	class flight
+	class flight_schedule
+	class flight_status
+	class crew_role
+	class crew_member
+	class crew_assignment
+}
+
+package "PassengersAndServices" {
+	class passenger
+	class reservation
+	class ticket
+	class ticket_class
+	class baggage
+	class checkin
+}
+
+continent -- country
+country -- department
+department -- city
+city -- airport
+airport -- terminal
+terminal -- boarding_gate
+airport -- runway
+airport -- maintenance_facility
+user -- person
+person -- passenger
+role -- permission
+airline -- flight
+flight -- flight_schedule
+flight -- route
+flight -- aircraft
+flight -- flight_type
+flight_schedule -- flight_status
+flight_schedule -- crew_assignment
+crew_assignment -- crew_member
+crew_member -- crew_role
+passenger -- reservation
+reservation -- ticket
+ticket -- ticket_class
+ticket -- baggage
+checkin -- ticket
+aircraft -- aircraft_type
+baggage -- passenger
+checkin -- passenger
+
+@enduml

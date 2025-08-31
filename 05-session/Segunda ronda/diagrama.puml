@@ -1,0 +1,97 @@
+@startuml PackageDiagram_AirportSystem
+
+package "module_security" {
+	class user
+	class role
+	class permission
+	class person
+}
+
+package "module_geolocation" {
+	class continent
+	class country
+	class department
+	class city
+}
+
+package "module_infrastructure" {
+	class airport
+	class terminal
+	class boarding_gate
+	class runway
+	class maintenance_facility
+}
+
+package "module_managementFlight" {
+	class airline
+	class aircraft
+	class route
+	class flight
+	class flight_schedule
+	class flight_status
+	class crew_role
+	class crew_member
+	class crew_assignment
+}
+
+package "module_passengers_and_services" {
+	class passenger
+	class reservation
+	class ticket
+	class baggage
+	class checkin
+}
+
+package "module_parameterization" {
+	class aircraft_type
+	class flight_type
+	class ticket_class
+}
+
+user -- person
+role -- permission
+person -- passenger
+airport -- terminal
+terminal -- boarding_gate
+airport -- maintenance_facility
+airline -- flight
+flight -- flight_schedule
+flight -- route
+flight -- aircraft
+flight_schedule -- crew_assignment
+crew_assignment -- crew_member
+crew_member -- crew_role
+passenger -- reservation
+reservation -- ticket
+ticket -- baggage
+checkin -- ticket
+aircraft -- aircraft_type
+flight -- flight_type
+ticket -- ticket_class
+continent -- country
+country -- department
+department -- city
+city -- airport
+airport -- runway
+flight_schedule -- flight_status
+flight_schedule -- flight
+crew_member -- person
+crew_assignment -- flight
+reservation -- flight
+reservation -- passenger
+ticket -- reservation
+ticket -- passenger
+baggage -- passenger
+baggage -- ticket
+checkin -- passenger
+checkin -- flight
+maintenance_facility -- runway
+
+airport -- flight
+airport -- flight_schedule
+terminal -- flight_schedule
+boarding_gate -- flight_schedule
+runway -- flight_schedule
+maintenance_facility -- aircraft
+
+@enduml

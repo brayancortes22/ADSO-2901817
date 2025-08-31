@@ -1,0 +1,189 @@
+@startuml ERD_AirportSystem
+
+entity "continent" as continent {
+	*id : int
+	name : string
+}
+entity "country" as country {
+	*id : int
+	name : string
+	continent_id : int
+}
+entity "department" as department {
+	*id : int
+	name : string
+	country_id : int
+}
+entity "city" as city {
+	*id : int
+	name : string
+	department_id : int
+}
+entity "airport" as airport {
+	*id : int
+	name : string
+	city_id : int
+}
+entity "terminal" as terminal {
+	*id : int
+	name : string
+	airport_id : int
+}
+entity "boarding_gate" as boarding_gate {
+	*id : int
+	code : string
+	terminal_id : int
+}
+entity "runway" as runway {
+	*id : int
+	code : string
+	airport_id : int
+}
+entity "maintenance_facility" as maintenance_facility {
+	*id : int
+	name : string
+	airport_id : int
+}
+entity "user" as user {
+	*id : int
+	username : string
+	password : string
+}
+entity "role" as role {
+	*id : int
+	name : string
+}
+entity "permission" as permission {
+	*id : int
+	name : string
+}
+entity "person" as person {
+	*id : int
+	name : string
+	user_id : int
+}
+entity "passenger" as passenger {
+	*id : int
+	person_id : int
+}
+entity "airline" as airline {
+	*id : int
+	name : string
+}
+entity "aircraft" as aircraft {
+	*id : int
+	registration : string
+	aircraft_type_id : int
+}
+entity "aircraft_type" as aircraft_type {
+	*id : int
+	model : string
+	manufacturer : string
+}
+entity "route" as route {
+	*id : int
+	origin_airport_id : int
+	destination_airport_id : int
+}
+entity "flight" as flight {
+	*id : int
+	airline_id : int
+	route_id : int
+	flight_type_id : int
+	aircraft_id : int
+}
+entity "flight_type" as flight_type {
+	*id : int
+	name : string
+}
+entity "flight_status" as flight_status {
+	*id : int
+	name : string
+}
+entity "flight_schedule" as flight_schedule {
+	*id : int
+	flight_id : int
+	flight_status_id : int
+	terminal_id : int
+	boarding_gate_id : int
+	runway_id : int
+	scheduled_departure : datetime
+	scheduled_arrival : datetime
+}
+entity "crew_role" as crew_role {
+	*id : int
+	name : string
+}
+entity "crew_member" as crew_member {
+	*id : int
+	person_id : int
+	crew_role_id : int
+}
+entity "crew_assignment" as crew_assignment {
+	*id : int
+	flight_schedule_id : int
+	crew_member_id : int
+}
+entity "reservation" as reservation {
+	*id : int
+	passenger_id : int
+	flight_id : int
+	status : string
+}
+entity "ticket" as ticket {
+	*id : int
+	reservation_id : int
+	passenger_id : int
+	ticket_class_id : int
+	price : decimal
+}
+entity "ticket_class" as ticket_class {
+	*id : int
+	name : string
+}
+entity "baggage" as baggage {
+	*id : int
+	ticket_id : int
+	passenger_id : int
+	weight : decimal
+}
+entity "checkin" as checkin {
+	*id : int
+	ticket_id : int
+	passenger_id : int
+}
+
+continent ||--o{ country
+country ||--o{ department
+department ||--o{ city
+city ||--o{ airport
+airport ||--o{ terminal
+terminal ||--o{ boarding_gate
+airport ||--o{ runway
+airport ||--o{ maintenance_facility
+user ||--o{ person
+person ||--o{ passenger
+role ||--o{ permission
+airline ||--o{ flight
+flight ||--o{ flight_schedule
+flight ||--o{ route
+flight ||--o{ aircraft
+flight ||--o{ flight_type
+flight_schedule ||--o{ flight_status
+flight_schedule ||--o{ terminal
+flight_schedule ||--o{ boarding_gate
+flight_schedule ||--o{ runway
+crew_member ||--o{ crew_role
+crew_assignment ||--o{ crew_member
+crew_assignment ||--o{ flight_schedule
+reservation ||--o{ passenger
+reservation ||--o{ flight
+ticket ||--o{ reservation
+ticket ||--o{ passenger
+ticket ||--o{ ticket_class
+baggage ||--o{ ticket
+baggage ||--o{ passenger
+checkin ||--o{ ticket
+checkin ||--o{ passenger
+
+@enduml

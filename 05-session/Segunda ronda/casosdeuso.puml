@@ -1,0 +1,23 @@
+@startuml UseCaseDiagram_AirportSystem
+
+actor Employee
+actor Passenger
+actor SecurityEmployee as Security
+
+usecase "Registrar vuelo" as UC1
+usecase "Vender tiquete" as UC2
+usecase "Registrar pasajero" as UC3
+usecase "Controlar acceso" as UC4
+usecase "Gestionar novedades" as UC5
+
+Employee --> UC1
+Employee --> UC2
+Employee --> UC3
+Employee --> UC5
+Security --> UC4
+Passenger --> UC3
+
+UC2 --> UC3 : <<include>>
+UC2 --> UC1 : <<extend>>
+
+@enduml
