@@ -1,0 +1,58 @@
+@startuml paquete_diagrama_vuelos
+title Sistema de Gestión de Vuelos - Diagrama de Paquetes
+
+skinparam packageStyle rectangle
+left to right direction
+
+package "module_security" as module_security {
+	class user
+	class role
+	class permission
+	class person
+}
+
+package "geolocation" as geolocation {
+	class continent
+	class country
+	class department
+	class city
+}
+
+package "module_infrastructure" as module_infrastructure {
+	class airport
+	class terminal
+	class boarding_gate
+	class runway
+	class maintenance_facility
+}
+
+package "module_managementFlight" as module_managementFlight {
+	class airline
+	class aircraft
+	class route
+	class flight
+	class flight_schedule
+	class flight_status
+	class crew_role
+	class crew_member
+	class crew_assignment
+}
+
+package "passengers_and_services" as passengers_and_services {
+	class passenger
+	class reservation
+	class ticket
+	class baggage
+	class checkin
+}
+
+package "parameterization" as parameterization {
+	class aircraft_type
+	class flight_type
+	class ticket_class
+}
+
+' Solo se permite UNA conexión entre paquetes
+module_managementFlight ..> module_infrastructure : uses
+
+@enduml
