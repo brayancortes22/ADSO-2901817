@@ -1,0 +1,4 @@
+HU,Nombre,DiaInicio,DiaFin,Fase
+HU-001,Carrito de compras,1,4,MVP
+HU-002,Checkout,3,10,MVP
+HU-003,Seguimiento de pedidos,6,10,MVP

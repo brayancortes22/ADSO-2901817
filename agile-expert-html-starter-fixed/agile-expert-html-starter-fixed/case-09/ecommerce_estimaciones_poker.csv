@@ -1,0 +1,4 @@
+ID,Funcionalidad,Dependencias,Complejidad,Incertidumbre,SP_propuesto,Deck,Notas
+HU-001,Carrito de compras,"Catálogo, Sesión usuario",M,Media,5,"[1, 2, 3, 5, 8, 13]","Persistencia de carrito, reglas de stock"
+HU-002,Checkout,"Pagos, Carrito, Inventarios",L,Alta,13,"[1, 2, 3, 5, 8, 13]","Medios de pago, validaciones fiscales, idempotencia"
+HU-003,Seguimiento de pedidos,"Logística, Notificaciones",M,Media,5,"[1, 2, 3, 5, 8, 13]","Estados, SLA, integración operador"

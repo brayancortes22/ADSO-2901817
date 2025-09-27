@@ -1,0 +1,36 @@
+{
+  "demo": {
+    "demo": {
+      "aerolinea": {
+        "src": {
+          "main": {
+            "java": {
+              "com": {
+                "sena": {
+                  "aerolinea": {
+                    "aircraftmanagement": {
+                      "controller": {
+                        "AircraftController.java": "package com.sena.aerolinea.aircraftmanagement.controller;\r\n\r\nimport com.sena.aerolinea.aircraftmanagement.entity.Aircraft;\r\nimport com.sena.aerolinea.aircraftmanagement.service.AircraftService;\r\nimport org.springframework.web.bind.annotation.*;\r\nimport java.util.List;\r\nimport java.util.Optional;\r\n\r\n@RestController\r\n@RequestMapping(\"/api/aircrafts\")\r\npublic class AircraftController {\r\n    private final AircraftService aircraftService;\r\n\r\n    public AircraftController(AircraftService aircraftService) {\r\n        this.aircraftService = aircraftService;\r\n    }\r\n\r\n    @GetMapping\r\n    public List<Aircraft> getAllAircrafts() {\r\n        return aircraftService.findAll();\r\n    }\r\n\r\n    @GetMapping(\"/{id}\")\r\n    public Optional<Aircraft> getAircraftById(@PathVariable Long id) {\r\n        return aircraftService.findById(id);\r\n    }\r\n\r\n    @PostMapping\r\n    public Aircraft createAircraft(@RequestBody Aircraft aircraft) {\r\n        return aircraftService.save(aircraft);\r\n    }\r\n\r\n    @PutMapping(\"/{id}\")\r\n    public Aircraft updateAircraft(@PathVariable Long id, @RequestBody Aircraft aircraft) {\r\n        aircraft.setId(id);\r\n        return aircraftService.save(aircraft);\r\n    }\r\n\r\n    @DeleteMapping(\"/{id}\")\r\n    public void deleteAircraft(@PathVariable Long id) {\r\n        aircraftService.deleteById(id);\r\n    }\r\n}\r\n"
+                      },
+                      "entity": {
+                        "models": {
+                          "Aircraft.java": "package com.sena.aerolinea.aircraftmanagement.entity;\r\n\r\nimport jakarta.persistence.*;\r\n\r\n@Entity\r\npublic class Aircraft {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Long id;\r\n    private String model;\r\n    private String registration;\r\n    private int capacity;\r\n\r\n    // Getters y setters\r\n    public Long getId() { return id; }\r\n    public void setId(Long id) { this.id = id; }\r\n    public String getModel() { return model; }\r\n    public void setModel(String model) { this.model = model; }\r\n    public String getRegistration() { return registration; }\r\n    public void setRegistration(String registration) { this.registration = registration; }\r\n    public int getCapacity() { return capacity; }\r\n    public void setCapacity(int capacity) { this.capacity = capacity; }\r\n}\r\n"
+                        }
+                      },
+                      "repository": {
+                        "AircraftRepository.java": "package com.sena.aerolinea.aircraftmanagement.repository;\r\n\r\nimport com.sena.aerolinea.aircraftmanagement.entity.Aircraft;\r\nimport org.springframework.data.jpa.repository.JpaRepository;\r\n\r\npublic interface AircraftRepository extends JpaRepository<Aircraft, Long> {\r\n}\r\n"
+                      },
+                      "service": {
+                        "AircraftService.java": "package com.sena.aerolinea.aircraftmanagement.service;\r\n\r\nimport com.sena.aerolinea.aircraftmanagement.entity.Aircraft;\r\nimport com.sena.aerolinea.aircraftmanagement.repository.AircraftRepository;\r\nimport org.springframework.stereotype.Service;\r\nimport java.util.List;\r\nimport java.util.Optional;\r\n\r\n@Service\r\npublic class AircraftService {\r\n    private final AircraftRepository aircraftRepository;\r\n\r\n    public AircraftService(AircraftRepository aircraftRepository) {\r\n        this.aircraftRepository = aircraftRepository;\r\n    }\r\n\r\n    public List<Aircraft> findAll() {\r\n        return aircraftRepository.findAll();\r\n    }\r\n\r\n    public Optional<Aircraft> findById(Long id) {\r\n        return aircraftRepository.findById(id);\r\n    }\r\n\r\n    public Aircraft save(Aircraft aircraft) {\r\n        return aircraftRepository.save(aircraft);\r\n    }\r\n\r\n    public void deleteById(Long id) {\r\n        aircraftRepository.deleteById(id);\r\n    }\r\n}\r\n"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

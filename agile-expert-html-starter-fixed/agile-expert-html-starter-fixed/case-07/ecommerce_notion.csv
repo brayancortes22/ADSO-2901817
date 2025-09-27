@@ -1,0 +1,16 @@
+ID,Funcionalidad,MoSCoW,RICE,Reach,Impact,Confidence,Effort
+14,"Control de acceso seguro (roles: cliente, administrador, logística)",Must,76.5,85,2.0,0.9,2
+1,Registro y autenticación de clientes,Must,48.0,80,2.0,0.9,3
+6,"Notificaciones de estado del pedido (correo, app)",Should,45.15625,85,1.25,0.85,2
+3,Carrito de compras y checkout,Must,40.5,90,3.0,0.9,6
+2,Catálogo de productos con búsqueda y filtros avanzados,Must,40.375,95,2.5,0.85,5
+4,"Métodos de pago múltiples (tarjetas, PSE, billeteras digitales)",Must,38.25,90,3.0,0.85,6
+10,Integración con inventarios en tiempo real,Must,31.666666666666668,95,2.5,0.8,6
+11,Integración con operadores logísticos para entregas,Must,22.5,90,2.0,0.75,6
+5,Seguimiento de pedidos en tiempo real,Should,18.375,70,1.5,0.7,4
+15,Encuestas de satisfacción post-compra,Could,18.0,60,0.75,0.8,2
+9,Gestión de devoluciones y garantías en línea,Should,16.25,65,1.25,0.8,4
+12,"Panel de analítica para gerencia (ventas, clientes activos, devoluciones)",Could,13.333333333333334,50,1.0,0.8,3
+13,App móvil con acceso a catálogo y seguimiento de pedidos,Could,12.25,70,1.5,0.7,6
+7,"Programa de fidelización (puntos, descuentos)",Could,10.5,60,1.0,0.7,4
+8,"Chatbot de atención al cliente (estado de pedido, devoluciones)",Could,8.9375,55,0.75,0.65,3

@@ -1,0 +1,23 @@
+ID,Rol,Tarea,Horas,Notas
+HU-001,FE,UI producto + botón 'Agregar al carrito',4,Dep: catálogo
+HU-001,FE,"Mini-carrito y página de carrito (listar, subtotal, eliminar)",6,
+HU-001,BE,"Endpoints cart: add/update/remove, totales, promociones (stub)",6,
+HU-001,INT,Validación stock en tiempo real (read-only),4,Dep: inventarios
+HU-001,DATA,Modelo CartItem/Cart y esquemas (OpenAPI),3,
+HU-001,QA,Tests UI (happy path) + integración API cart,4,
+HU-001,OBS,Logs/trace cart_id; métricas de intentos,3,
+HU-002,FE,"Formulario checkout (envío/facturación), validaciones",8,
+HU-002,FE,"Selección de método de pago (tarjeta, PSE), estados y errores",6,
+HU-002,BE,"Crear orden, idempotencia, totales/ impuestos",8,
+HU-002,INT,"Integración pasarela pagos sandbox (tarj/PSE), webhooks",12,Dep: proveedor de pagos
+HU-002,INT,Reserva/confirmación de stock; reversos en falla,6,Dep: inventarios
+HU-002,DATA,"Eventos: OrderCreated, PaymentSucceeded/Failed",4,
+HU-002,SEC,"Validación antifraude/OWASP top 10 (inputs), rate limiting",4,
+HU-002,QA,"Pruebas integración con pasarela (mock), flujos éxito/falla",6,
+HU-002,OBS,"Trazas order_id, métricas de error de pago",3,
+HU-003,FE,Vista 'Mi pedido' con estados y timeline básico,5,
+HU-003,BE,Endpoint getOrderStatus + suscripción a eventos logística,4,
+HU-003,INT,Webhook operador logístico → actualización de estado,5,Dep: logística
+HU-003,DATA,Estados: CREATED/PAID/PICKING/SHIPPED/DELIVERED/CANCELLED,2,
+HU-003,QA,Pruebas de transición de estados + notificaciones,4,
+HU-003,OBS,"Alertas por SLA de actualización (p.ej., >30min)",2,
